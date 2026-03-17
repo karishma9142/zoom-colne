@@ -1,13 +1,15 @@
 import { ReactNode } from "react";
+import { Inter } from "next/font/google";
+import "./globals.css";
+
+const inter = Inter({ subsets: ["latin"] });
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
-      <body>
+      <body className={`${inter.className} bg-[#161925]`}>
         <main>
-          Navbar
           {children}
-          Footer
         </main>
       </body>
     </html>
