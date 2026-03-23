@@ -73,6 +73,16 @@
     --sidebar-ring: oklch(0.556 0 0);
 }
 
+.glassmorphism {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 10px;
+  padding: 10px 20px;
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
 @theme inline {
     --font-sans: var(--font-sans);
     --color-sidebar-ring: var(--sidebar-ring);
