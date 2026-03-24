@@ -21,7 +21,7 @@ const MeetingTypeList = () => {
 
         <HomeCard icon="/icons/add-meeting.svg" title="New Meeting" 
         discription="Start an instant meeting" background="#FC7532" 
-        onClickHandler={()=>setMeetingState('isJoiningMeeting')}/>
+        onClickHandler={()=>setMeetingState('isInstantMeeting')}/>
 
         
         <HomeCard icon="/icons/Schedule.svg" title="Schedule Meeting" 
