@@ -3,8 +3,17 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import { Toaster } from "@/components/ui/sonner"
-
+import '@stream-io/video-react-sdk/dist/css/styles.css';
+import { Metadata } from "next";
 const inter = Inter({ subsets: ["latin"] });
+
+export const metadata : Metadata = {
+    title : "YOOM" ,
+    description : 'Video calling app',
+    icons : {
+        icon : '/icons/logo.svg'
+    }
+}
 
 export default function AppLayout({ children }: { children: ReactNode }) {
   return (
@@ -14,7 +23,7 @@ export default function AppLayout({ children }: { children: ReactNode }) {
           appearance={{
             layout: {
               logoImageUrl: "/public/icons/yoom-logo.svg",
-              socialButtonsVariant: "iconButton",
+              socialButtonsVariant: "iconButton"
             },
           }}
         >

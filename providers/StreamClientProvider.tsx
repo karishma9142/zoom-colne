@@ -27,19 +27,23 @@ export const StreamVideoProvider = ({ children }: { children: ReactNode }) => {
       user: {
         id: user.id,
         name: user.username || user.id,
-        image: user.imageUrl, 
+        image: user.imageUrl,
       },
-      tokenProvider ,
+      tokenProvider: async () => {
+        const res = await fetch('/api/token');
+        const data = await res.json();
+        return data.token;
+      },
     });
 
     setVideoClient(client);
 
     return () => {
-      client.disconnectUser(); 
+      client.disconnectUser();
     };
   }, [user, isLoaded]);
 
-  if (!videoClient) return <Loader/>; 
+  if (!videoClient) return <Loader />;
 
   return (
     <StreamVideo client={videoClient}>
