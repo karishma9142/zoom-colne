@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { Button } from "./button";
 
 const MeetingSetup = ({setIsSetupComplete} : {setIsSetupComplete : (value : boolean) => void}) => {
-    const [isMicCamToggledOn , setIsMicCamTaggledOn] = useState(false);
+    const [isMicCamToggledOn , setIsMicCamToggledOn] = useState(false);
     const call = useCall();
 
     if(!call){
@@ -33,7 +33,7 @@ const MeetingSetup = ({setIsSetupComplete} : {setIsSetupComplete : (value : bool
                     <input 
                     type="checkbox"
                     checked={isMicCamToggledOn}
-                    onChange={(e) => setIsMicCamTaggledOn(e.target.checked)}
+                    onChange={(e) => setIsMicCamToggledOn(e.target.checked)}
                     />
                     join with mic and camera off
                 </label>

@@ -10,6 +10,7 @@ import { Call, useStreamVideoClient } from "@stream-io/video-react-sdk";
 import { toast } from "sonner"
 import { Textarea } from "./textarea";
 import ReactDatePicker from 'react-datepicker'
+import Loader from "./loader";
 
 const MeetingTypeList = () => {
     const router = useRouter();
@@ -45,7 +46,7 @@ const MeetingTypeList = () => {
                 data: {
                     starts_at: startsAt,
                     custom: {
-                        description: description
+                        description
                     }
                 }
             })
@@ -53,7 +54,7 @@ const MeetingTypeList = () => {
             setCallDetails(call);
 
             if (!values.description) {
-                router.push(`/meeting/${call.id}`)
+                router.push(`/meeting/${call.id}`);
             }
             toast('meeting created')
         } catch (error) {
@@ -61,7 +62,7 @@ const MeetingTypeList = () => {
             toast('failed to create')
         }
     }
-
+    if (!client || !user) return <Loader/>;
     const meetingLink = `${process.env. NEXT_PUBLIC_BASE_URL}/meeting/${callDetails?.id}`
     return (
         <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
@@ -95,7 +96,7 @@ const MeetingTypeList = () => {
                     handleClick={createMeeting}
                 >
                     <div className="flex flex-col gap-2.5">
-                        <label className="text-base text-normal leading-[22px]
+                        <label className="text-base text-normal leading-[22.4px]
                         text-[#0E79F9]">
                             Add a description
                         </label>
@@ -106,7 +107,7 @@ const MeetingTypeList = () => {
                             }} />
                     </div>
                     <div className="flex w-full flex-col gap-2.5">
-                        <label className="text-base text-normal leading-[22px]
+                        <label className="text-base text-normal leading-[22.4px]
                         text-sky-2">
                             Select Date and Time
                         </label>
@@ -137,7 +138,7 @@ const MeetingTypeList = () => {
                         navigator.clipboard.writeText(meetingLink);
                         toast('Link copied')
                     }}
-                    image="/icons/cheaked.svg"
+                    image={'/icons/checked.svg'}
                     buttonIcon="/icons/copy.svg"
                     buttonText='Copy Meeting Link'
 

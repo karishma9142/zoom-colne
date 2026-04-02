@@ -13,7 +13,7 @@ const Meeting =({params : {id}} : {params : {id:string}})=>{
     const {user , isLoaded} = useUser();
     const [isSetupComplete , setIsSetupComplete] = useState(false);
     const {call , isCallLoading} = useGetCallById(id);
-    if(!isLoaded || isCallLoading) return <Loader/>
+    if(!isLoaded || isCallLoading || !user) return <Loader/>
     return (
         <main className="h-screen w-full">
             <StreamCall call={call}>
