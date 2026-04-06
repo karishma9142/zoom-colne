@@ -27,6 +27,14 @@ const CallList = ({ type }: { type: 'ended' | 'upcoming' | 'recordings' }) => {
     }
   };
 
+  useEffect (() => {
+    const fetchRecordings = async () => {
+      // const callData = 
+    }
+
+    if(type === 'recordings') fetchRecordings();
+  } , [type , callRecordings])
+
   const getNoCallsMessage = () => {
     switch (type) {
       case 'ended':
