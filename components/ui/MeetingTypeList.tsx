@@ -11,6 +11,7 @@ import { toast } from "sonner"
 import { Textarea } from "./textarea";
 import ReactDatePicker from 'react-datepicker'
 import Loader from "./loader";
+import { Input } from "./input";
 
 const MeetingTypeList = () => {
     const router = useRouter();
@@ -152,6 +153,19 @@ const MeetingTypeList = () => {
                 buttonText="Start Meeting"
                 handleClick={createMeeting}
             />
+
+            <MeetingModal
+                isOpen={meetingState === 'isJoiningMeeting'}
+                onClose={() => setMeetingState(undefined)}
+                title='Type The Link Here'
+                className='text-center cursor-pointer'
+                buttonText="Join Meeting"
+                handleClick={() => router.push(values.link)}
+            >
+                <Input placeholder="Meeting Link" className="bg-[#252941] border-none focus-visible:ring-0 focus-visible:ring-offset-0"
+                onChange={(e) => {setValues({...values , link : e.target.value})}}
+                ></Input>
+            </MeetingModal>
         </section>
     )
 }

@@ -1,3 +1,4 @@
+// @ts-nocheck
 'use client';
 
 import { Call, CallRecording } from '@stream-io/video-react-sdk';
@@ -7,6 +8,7 @@ import { useGetCalls } from '@/hooks/useGetCalls';
 import MeetingCard from './MeetingCard';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
+
 
 const CallList = ({ type }: { type: 'ended' | 'upcoming' | 'recordings' }) => {
   const router = useRouter();
@@ -26,14 +28,6 @@ const CallList = ({ type }: { type: 'ended' | 'upcoming' | 'recordings' }) => {
         return [];
     }
   };
-
-  useEffect (() => {
-    const fetchRecordings = async () => {
-      // const callData = 
-    }
-
-    if(type === 'recordings') fetchRecordings();
-  } , [type , callRecordings])
 
   const getNoCallsMessage = () => {
     switch (type) {

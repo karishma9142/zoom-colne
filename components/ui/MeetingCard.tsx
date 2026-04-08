@@ -5,7 +5,7 @@ import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { Button } from "./button";
 import { avatarImages } from "@/constants";
-import { useToast } from "./use-toast";
+import { toast } from "sonner"
 
 interface MeetingCardProps {
   title: string;
@@ -28,7 +28,6 @@ const MeetingCard = ({
   link,
   buttonText,
 }: MeetingCardProps) => {
-  const { toast } = useToast();
 
   return (
     <section className="flex min-h-[258px] w-full flex-col justify-between rounded-[14px] bg-[#1B1E2D] px-5 py-8 xl:max-w-[568px]">
@@ -69,11 +68,9 @@ const MeetingCard = ({
             <Button
               onClick={() => {
                 navigator.clipboard.writeText(link);
-                toast({
-                  title: "Link Copied",
-                });
+                toast("Link Copied");
               }}
-              className="bg-dark-4 px-6"
+              className="bg-[#161925] px-6 cursor-pointer"
             >
               <Image
                 src="/icons/copy.svg"
